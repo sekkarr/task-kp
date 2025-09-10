@@ -1,25 +1,51 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card } from "./components/Card";
-import axios from 'axios';
+import axios from "axios";
 
 const App = () => {
-  const [digimon, setDigimon] = useState(null);
+  const [input, setInput] = useState("");       
+  const [digimon, setDigimon] = useState(null); 
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    axios.get("https://digi-api.com/api/v1/digimon/1")
-    .then((res) => {
-      setDigimon(res.data)
-    })
-  }, []);
+  const handleSearch = async () => {
+    if (!input) return;
 
-  if (!digimon) return <p>Loading...</p>;
+    setLoading(true);
+    try {
+      const res = await axios.get(`https://digi-api.com/api/v1/digimon/${input}`);
+      setDigimon(res.data);
+    } catch (err) {
+      alert("Data tidak ditemukan");
+      setDigimon(null);
+    } finally {
+      setLoading(false);
+      setInput(""); 
+    }
+  };
 
   return (
-    <div>
-      <Card data={digimon} layout="vertical" />
-      <Card data={digimon} layout="horizontal" />
+    <div style={{ padding: "20px" }}>
+      <input
+        type="text"
+        placeholder="Masukkan id atau nama"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        style={{ marginRight: "10px", padding: "5px" }}
+      />
+      <button onClick={handleSearch} disabled={!input || loading}>
+        {loading ? "Loading" : "Cari"}
+      </button>
+
+      <div style={{ marginTop: "20px" }}>
+        {!loading && digimon && (
+          <>
+            <Card data={digimon} layout="vertical" />
+            <Card data={digimon} layout="horizontal" />
+          </>
+        )}
+      </div>
     </div>
   );
 };
 
-export default App;   
+export default App;
