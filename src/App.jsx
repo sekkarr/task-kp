@@ -14,7 +14,7 @@ const App = () => {
     try {
       const res = await axios.get(`https://digi-api.com/api/v1/digimon/${input}`);
       setDigimon(res.data);
-    } catch (err) {
+    } catch {
       alert("Data tidak ditemukan");
       setDigimon(null);
     } finally {
@@ -25,18 +25,19 @@ const App = () => {
 
   return (
     <div style={{ padding: "20px" }}>
+      <h2>Carii Digimonn</h2>
       <input
         type="text"
         placeholder="Masukkan id atau nama"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        style={{ marginRight: "10px", padding: "5px" }}
+        style={{ marginRight: "10px", padding: "12px"  }}
       />
       <button onClick={handleSearch} disabled={!input || loading}>
         {loading ? "Loading" : "Cari"}
       </button>
 
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ marginTop: "20 px" }}>
         {!loading && digimon && (
           <>
             <Card data={digimon} layout="vertical" />
