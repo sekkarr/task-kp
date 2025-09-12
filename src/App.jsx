@@ -4,6 +4,7 @@ import Menu from "./layout/Menu";
 import Home from "./views/Home";
 import Digimon from "./views/Digimon";
 import RekamMedis from "./views/RekamMedis";
+import './App.css'
 
 function App() {
   return (
