@@ -1,17 +1,23 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"; // untuk navigasi antar page
-import Digimon from "./views/Digimon";
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Menu from "./layout/Menu";
 import Home from "./views/Home";
+import Digimon from "./views/Digimon";
+import RekamMedis from "./views/RekamMedis";
 
-const App = () => {
-  // untuk mapping routes yang bisa diakses
+function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/digimon" element={<Digimon />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <Menu /> 
+      <div style={{ padding: "0px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/digimon" element={<Digimon />} />
+          <Route path="/rekammedis" element={<RekamMedis />} />
+        </Routes>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;

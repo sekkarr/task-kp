@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Card } from "../components/Card";
 import Menu from "../layout/Menu";
-import menuItems from "../layout/menuItems";
 
 const Digimon = () => {
   const [input, setInput] = useState("");
@@ -29,7 +28,6 @@ const Digimon = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <Menu items={menuItems} />
       <h2>Carii Digimonn</h2>
       <input
         type="text"
