@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
+import Menu from "../layout/Menu";
+import menuItems from "../layout/menuItems";
 
 const Home = () => {
+
   return (
     <div style={{ padding: "20px" }}>
-      {/* start of menu */}
-      <nav style={{ display: "flex", gap: ".3rem" }}>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/Digimon"}>Digimon</Link>
-      </nav>
-      {/* end of menu */}
+      <Menu items={menuItems} />
       <h1>Home</h1>
     </div>
   );
