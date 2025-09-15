@@ -3,7 +3,7 @@ import Menu from "../layout/Menu";
 
 const Home = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "100px" }}>
       <h1>Home</h1>
     </div>
   );

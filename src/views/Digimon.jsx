@@ -27,7 +27,7 @@ const Digimon = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "100px" }}>
       <h2>Carii Digimonn</h2>
       <input
         type="text"

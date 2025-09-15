@@ -1,7 +1,8 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 100%;
   margin: 0;
-  padding: 2rem;
+  padding: 0;
 }
 
 .logo {
@@ -73,15 +74,19 @@ nav {
 }
 
 nav a {
-  text-decoration: none;
+  display: inline-block;      
   color: #333;
   font-weight: 500;
-  transition: color 0.2s ease;
+  padding: 12px 24px;            
+  font-size: 16px;             
+  border-radius: 30px;           
 }
 
 nav a:hover {
-  color: #438826; 
+  color: #fff;
+  background-color: #579e39;
 }
+
 
 .rekam-tabel {
   width: 100%;
@@ -90,7 +95,8 @@ nav a:hover {
   border: 1px solid #ccc; 
   overflow: hidden;
   font-size: 14px;
-  table-layout: fixed; 
+  table-layout: fixed;
+  background-color: transparent; 
 }
 
 .rekam-tabel th,
@@ -98,8 +104,17 @@ nav a:hover {
   padding: 12px;
   text-align: center; 
   font-weight: 500;
-  border: 1px solid #ffffff; 
+  border: 1px solid #ccc; 
   word-wrap: break-word;
+  background-color: transparent; 
+}
+
+.rekam-tabel th {
+  font-weight: 600;
+}
+
+.rekam-tabel tr:nth-child(even) {
+  background-color: #bcbcbc;
 }
 
 .rekam-tabel th:first-child,
@@ -129,6 +144,7 @@ nav a:hover {
   padding: 10px 12px;
   font-size: 14px;
   width: 100px;
+  margin-top: -20px;  
 }
 
 .btn-tambah {
@@ -140,10 +156,121 @@ nav a:hover {
 
 }
 
-.btn-next {
+.btn-next, .btn-prev {
   border-radius: 20px;
   background-color: grey;
   padding: 10px 8px;
   font-size: 14px;
   width: 110px;
+}
+
+.form-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  color: #213547;
+}
+
+.section {
+  margin-bottom: 25px;
+  padding: 15px 20px;
+  background-color: #fffcfc;
+}
+
+.section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.section-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.section-row .section {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #d1d5db;
+  border-radius: 0;
+  font-size: 14px;
+  color: #111827;
+  background-color: transparent;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-bottom: 2px solid #3b82f6;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+label input[type="checkbox"] + span {
+  font-weight: 500;
+  color: #111827;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #10b981;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background-color: #059669;
+}
+
+button[type="button"] {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+button[type="button"]:hover {
+  border: 1px solid #9ca3af;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+  cursor: pointer;
 }
