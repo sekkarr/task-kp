@@ -90,13 +90,11 @@ nav a:hover {
 
 .rekam-tabel {
   width: 100%;
-  border-collapse: collapse;
-  border-radius: 8px;
-  border: 1px solid #ccc; 
+  border: 1px solid #c8c7c7; 
   overflow: hidden;
   font-size: 14px;
   table-layout: fixed;
-  background-color: transparent; 
+  border-collapse: collapse;
 }
 
 .rekam-tabel th,
@@ -104,7 +102,6 @@ nav a:hover {
   padding: 12px;
   text-align: center; 
   font-weight: 500;
-  border: 1px solid #ccc; 
   word-wrap: break-word;
   background-color: transparent; 
 }
@@ -114,12 +111,20 @@ nav a:hover {
 }
 
 .rekam-tabel tr:nth-child(even) {
-  background-color: #bcbcbc;
+  background-color: #edebeb;
 }
 
 .rekam-tabel th:first-child,
 .rekam-tabel td:first-child {
-  width: 100px;
+  width: 20px;
+}
+
+.rekam-tabel th:last-child,
+.rekam-tabel td:last-child {
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  
 }
 
 .filter-container {
@@ -139,7 +144,7 @@ nav a:hover {
 }
 
 .btn-reset {
-  border-radius: 20px;
+  
   background-color: red;
   padding: 10px 12px;
   font-size: 14px;
@@ -147,18 +152,10 @@ nav a:hover {
   margin-top: -20px;  
 }
 
-.btn-tambah {
-  padding: 10px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  width: 110px;
-  border: 2px solid green;
-
-}
 
 .btn-next, .btn-prev {
   border-radius: 20px;
-  background-color: grey;
+  background-color: rgb(190, 183, 183);
   padding: 10px 8px;
   font-size: 14px;
   width: 110px;
@@ -218,7 +215,7 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px ;
   outline: none;
 }
 
@@ -273,4 +270,59 @@ button[type="button"]:hover {
   align-items: center; 
   gap: 8px; 
   cursor: pointer;
+}
+
+.aksi {
+  display: flex;
+  gap: 12px;       
+  justify-content: center; 
+  align-items: center;
+}
+
+.aksi-icon {
+  font-size: 20px; 
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.aksi-icon:hover {
+  color: #24925d; 
+}
+
+.delete-icon {
+  color: #dc2626;       
+}
+
+.delete-icon:hover {
+  color: #b91c1c;        
+}
+
+.btn-tambah {
+  display: inline-flex;       
+  align-items: center;        
+  gap: 8px;                  
+  padding: 8px 16px;             
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid green;
+  color: green;
+
+}
+
+.btn-icon {
+  font-size: 16px;
+  color: green;             
+  display: inline-flex;
+  align-self: center;          
+}
+
+.btn-tambah {
+  padding: 10px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 110px;
+  
 }

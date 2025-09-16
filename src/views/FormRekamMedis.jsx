@@ -229,6 +229,8 @@ export default FormRekamMedis;
 
 // notes:
 // - masih kurang icon icon
-// -  display inputan
-// - belum otomatis untuk edit 
-// - karena data masih dummy
+// - kurang styling juga - yang di foto masih biasa 
+// - display inputan
+// - belum otomatis untuk form edit - masih sama dengan form tambah  (karena data masih dummy)
+// - 
+
