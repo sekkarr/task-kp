@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect   } from "react";
 import { useNavigate } from "react-router-dom";
+import Profile from "../assets/icons/Profile.svg?react";
+import Diagnosa from "../assets/icons/Diagnosa.svg?react";
+import Keluhan from "../assets/icons/Recamedic1.svg?react";
+import RekamMedis from "../assets/icons/Rekamedic2.svg?react";
+import Tindakan from "../assets/icons/Tindakan.svg?react";
+import Notifikasi from "../assets/icons/Notifikasi.svg?react";
+import SkorSehat from "../components/rekamMedis/formRekamMedis/SkorSehat";
 
 const FormRekamMedis = () => {
     const navigate = useNavigate();
+
+    const [rekamMedisList, setRekamMedisList] = useState(() => {
+    const saved = localStorage.getItem("rekamMedis");
+    return saved ? JSON.parse(saved) : [];
+    });
 
     const [form, setForm] = useState({
         tanggal: "",
@@ -19,10 +31,14 @@ const FormRekamMedis = () => {
         jenisLab: "",
         hasil: "",
         foto: null,
-        notif1: false,
-        notif2: false,
+        notif1: true,
+        notif2: true,
     });
 
+    useEffect(() => {
+        localStorage.setItem("rekamMedis", JSON.stringify(rekamMedisList));
+    }, [rekamMedisList]);
+    
     const handleChange = (e) => {
     const { name, value, files, type, checked } = e.target;
     setForm({
@@ -33,6 +49,7 @@ const FormRekamMedis = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setRekamMedisList([...rekamMedisList, form]);
         console.log("Form Data:", form);
         alert("Data berhasil disimpan!");
         navigate("/rekammedis"); 
@@ -71,7 +88,10 @@ const FormRekamMedis = () => {
 
             <div className="section-row">
             <div className="section">
-                <h3>Identitas Siswa</h3>
+                <h3>
+                    <Profile style={{ width: 30, marginRight:8, verticalAlign: "middle" }} />
+                    Identitas Siswa
+                    </h3>
                 <label>Nama Siswa</label>
                 <input
                 type="text"
@@ -98,7 +118,10 @@ const FormRekamMedis = () => {
             </div>
 
             <div className="section">
-                <h3>Keluhan</h3>
+                <h3>
+                    <Keluhan style={{ width: 30, marginRight:8, verticalAlign: "middle" }} />
+                    Keluhan
+                </h3>
                 <label>Keluhan</label>
                 <textarea
                 name="keluhan"
@@ -110,7 +133,10 @@ const FormRekamMedis = () => {
 
             <div className="section-row">
             <div className="section">
-                <h3>Rekam Medis</h3>
+                <h3>
+                    <RekamMedis style={{ width: 30, marginRight:8, verticalAlign: "middle" }} />
+                    Rekam Medis
+                </h3>
                 <label>Tinggi Badan</label>
                 <input
                 type="number"
@@ -137,7 +163,10 @@ const FormRekamMedis = () => {
             </div>
 
             <div className="section">
-                <h3>Diagnosa</h3>
+                <h3>
+                    <Diagnosa style={{ width: 30, marginRight:8, verticalAlign: "middle" }} />
+                    Diagnosa
+                </h3>
                 <textarea
                 name="diagnosa"
                 value={form.diagnosa}
@@ -149,7 +178,10 @@ const FormRekamMedis = () => {
             <div className="section-row">
                 <div className="section"></div>
                 <div className="section">
-                    <h3>Tindakan</h3>
+                    <h3>
+                        <Tindakan style={{ width: 30, marginRight:8, verticalAlign: "middle" }} />
+                        Tindakan
+                    </h3>
                     <label>Tindakan</label>
                     <input
                         type="text"
@@ -183,10 +215,19 @@ const FormRekamMedis = () => {
                 </div>
 
             </div>
+            <h3>
+                Skor Kesehatan
+            </h3>
+            <SkorSehat/>
+            <div>
 
+            </div>
 
             <div className="section" style={{ marginTop: "20px" }}>
-                <h3>Notifikasi</h3>
+                <h3>
+                    <Notifikasi style={{ width: 30, marginRight:8, verticalAlign: "middle" }} />
+                    Notifikasi
+                </h3>
                 <label>Beritahu Orang Tua                                    
                 <input
                 type="checkbox"
@@ -224,13 +265,6 @@ const FormRekamMedis = () => {
     );
 };
 
-export default FormRekamMedis;
+export default FormRekamMedis; 
 
-
-// notes:
-// - masih kurang icon icon
-// - kurang styling juga - yang di foto masih biasa 
-// - display inputan
-// - belum otomatis untuk form edit - masih sama dengan form tambah  (karena data masih dummy)
-// - 
 

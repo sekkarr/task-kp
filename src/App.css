@@ -84,13 +84,13 @@ nav a {
 
 nav a:hover {
   color: #fff;
-  background-color: #579e39;
+  background-color: #0A805D;
 }
 
 
 .rekam-tabel {
   width: 100%;
-  border: 1px solid #c8c7c7; 
+  border: 1px solid #E7E7F0; 
   overflow: hidden;
   font-size: 14px;
   table-layout: fixed;
@@ -111,7 +111,7 @@ nav a:hover {
 }
 
 .rekam-tabel tr:nth-child(even) {
-  background-color: #edebeb;
+  background-color: #f5f5f5;
 }
 
 .rekam-tabel th:first-child,
@@ -145,11 +145,12 @@ nav a:hover {
 
 .btn-reset {
   
-  background-color: red;
+  background-color: #E60004;
   padding: 10px 12px;
   font-size: 14px;
   width: 100px;
-  margin-top: -20px;  
+  margin-top: -20px;
+  color: white;  
 }
 
 
@@ -241,7 +242,7 @@ button {
 }
 
 button[type="submit"] {
-  background-color: #10b981;
+  background-color: #0A805D;
   color: #fff;
 }
 
@@ -272,23 +273,24 @@ button[type="button"]:hover {
   cursor: pointer;
 }
 
-.aksi {
+.aksi-wrapper {
   display: flex;
-  gap: 12px;       
-  justify-content: center; 
-  align-items: center;
+  gap: 8px;              /* jarak antar ikon */
+  justify-content: center;
+  flex-wrap: wrap;       /* kalau layar sempit, ikon bisa turun ke bawah */
 }
 
 .aksi-icon {
-  font-size: 20px; 
-  color: #444;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .aksi-icon:hover {
-  color: #24925d; 
+  transform: scale(1.2); /* efek zoom saat hover */
 }
+
 
 .delete-icon {
   color: #dc2626;       
@@ -304,25 +306,10 @@ button[type="button"]:hover {
   gap: 8px;                  
   padding: 8px 16px;             
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
-  border: 2px solid green;
-  color: green;
+  border: 2px solid #0A805D;
+  color: #0A805D;
 
-}
-
-.btn-icon {
-  font-size: 16px;
-  color: green;             
-  display: inline-flex;
-  align-self: center;          
-}
-
-.btn-tambah {
-  padding: 10px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  width: 110px;
-  
 }

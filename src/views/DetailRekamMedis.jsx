@@ -1,5 +1,4 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { FaSmile, FaFrown } from "react-icons/fa";
 
 const DetailRekamMedis = () => {
   const { id } = useParams();
@@ -45,8 +44,8 @@ const DetailRekamMedis = () => {
         </div>
       </div>
 
-      <section style={{ display: "flex", gap: "20px", marginBottom: "30px" }}>
-        <div className="rekam-medis" style={{ flex: 1, border: "1px solid #ccc", padding: "15px"}}>
+      <div className="section-row">
+        <div className="section">
           <h3>Rekam Medis</h3>
           <p>Tinggi Badan: {detail.tinggi} cm</p>
           <p>Berat Badan:{detail.berat} kg</p>
@@ -54,12 +53,12 @@ const DetailRekamMedis = () => {
         </div>
 
         <div style={{ flex: 1 }}>
-          <div className="diagnosa" style={{ border: "1px solid #ccc", padding: "15px", marginBottom: "20px" }}>
+          <div className="section">
             <h3>Diagnosa</h3>
             <p>{detail.diagnosa}</p>
           </div>
 
-          <div className="tindakan" style={{ border: "1px solid #ccc", padding: "15px" }}>
+          <div className="section">
             <h3>Tindakan</h3>
             <p>Tindakan: {detail.tindakan.tindakan}</p>
             <p>Jenis Lab: {detail.tindakan.jenisLab}</p>
@@ -68,12 +67,16 @@ const DetailRekamMedis = () => {
             <p>Dokumen: {detail.tindakan.dokumen}</p>
           </div>
         </div>
-      </section>
+      </div>
+      
+      <div className="section-row">
+        <section >
+          <h3>Keluhan</h3>
+          <p>{detail.keluhan}</p>
+        </section>
+        <div className="section"></div>
+      </div>
 
-      <section style={{ border: "1px solid #ccc", padding: "15px" }}>
-        <h3>Keluhan</h3>
-        <p>{detail.keluhan}</p>
-      </section>
       
       <div className="button-group" style={{ marginTop: "20px" }}>
         <button
@@ -95,5 +98,4 @@ export default DetailRekamMedis;
 //notes:
 //masih coba, bleum fix semua
 //Q: - apakah ada konten di setiap timeline
-//- emoticon diambil dari mana (?)
-//- 
+//- emoticon diambil dari mana 
