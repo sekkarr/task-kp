@@ -1,35 +1,42 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import  Plus from "../assets/icons/Plus.svg?react";
-import Pagination from "../components/rekamMedis/Pagination";
-import TabelRekamMedis from "../components/rekamMedis/TabelRekamMedis";
-import FilterRekamMedis from "../components/rekamMedis/FilterRekamMedis";
-import rekamMedisDummy from "../data/rekamMedis";
-// import { FaRegFileAlt, FaEdit, FaTimes, FaPlus } from "react-icons/fa";
+import  Plus from "../../assets/icons/Plus.svg?react";
+import Pagination from "../../components/rekamMedis/Pagination";
+import TabelRekamMedis from "../../components/rekamMedis/TabelRekamMedis";
+import FilterRekamMedis from "../../components/rekamMedis/FilterRekamMedis";
 
 
-const RekamMedis = () => {
+const RekamMedis = ({data, setData}  ) => {
 
-    const [dataa, setData] = useState(rekamMedisDummy);
+    //delete
+    const handleDelete = (id) => {
+        const confirmDelete = window.confirm("Yakin mau hapus data ini?");
+        if (confirmDelete) {
+        setData(data.filter((item) => item.id !== id));
+        }
+    };
 
     //pagination
     const [currentPage, setCurrentPage] = useState(1);
     const perPage = 5;
 
     //filter
-    const [tanggal, setTanggal] = useState(null);
+    const [tanggal, setTanggal] = useState([null, null]);
     const [nama, setNama] = useState("");
     const [keluhan, setKeluhan] = useState("");
     const [tindakan, setTindakan] = useState("");
 
     // filter dropdown
-    const uniqueNama = [...new Set(dataa.map((item) => item.nama))];
-    const uniqueKeluhan = [...new Set(dataa.map((item) => item.keluhan))];
-    const uniqueTindakan = [...new Set(dataa.map((item) => item.tindakan))];
+    const uniqueNama = [...new Set(data.map((item) => item.nama))];
+    const uniqueKeluhan = [...new Set(data.map((item) => item.keluhan))];
+    const uniqueTindakan = [...new Set(data.map((item) => item.tindakan))];
 
-    const filterData = dataa.filter((item) => {
-        const matchTanggal = tanggal ? item.tanggal === tanggal.toISOString().split("T")[0] : true;
-        const matchNama = nama ? item.nama === nama : true;
+    const filterData = data.filter((item) => {
+        let matchTanggal = true;
+            if (tanggal[0] && tanggal[1]) {
+      const itemDate = new Date(item.tanggal);
+      matchTanggal = itemDate >= tanggal[0] && itemDate <= tanggal[1];
+    } const matchNama = nama ? item.nama === nama : true;
         const matchKeluhan = keluhan ? item.keluhan === keluhan : true;
         const matchTindakan = tindakan ? item.tindakan === tindakan : true;
 
@@ -38,19 +45,11 @@ const RekamMedis = () => {
 
     //reset
     const handleReset = () => {
-        setTanggal(null);
+        setTanggal([null, null]);
         setNama("");
         setKeluhan("");
         setTindakan("");
         setCurrentPage(1);
-    };
-
-    //delete
-    const handleDelete = (id) => {
-        const confirmDelete = window.confirm("Yakin mau hapus data ini?");
-        if (confirmDelete) {
-        setData(dataa.filter((item) => item.id !== id));
-        }
     };
 
     //pagnation
@@ -117,7 +116,7 @@ export default RekamMedis;
 
 
 // notes:
-// date picker belum fix 
+// date picker belum fix - harusnya setdatefrom dulu ga si (?)
 // filter (atas input tanggal)
 // tabel 
 // styling css

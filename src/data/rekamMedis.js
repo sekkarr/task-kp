@@ -1,3 +1,4 @@
+
 const rekamMedisDummy = [
   {
     id: 1,
@@ -12,6 +13,7 @@ const rekamMedisDummy = [
     golDar: "O",
     diagnosa: "Migrain",
     tindakan: "Pemberian obat",
+    skorSehat: 4,
   },
   {
     id: 2,
@@ -26,6 +28,7 @@ const rekamMedisDummy = [
     golDar: "A",
     diagnosa: "Flu",
     tindakan: "Istirahat & vitamin",
+    skorSehat: 10,
   },
   {
     id: 3,
@@ -40,6 +43,7 @@ const rekamMedisDummy = [
     golDar: "B",
     diagnosa: "ISPA",
     tindakan: "Obat batuk",
+    skorSehat: 4,
   },
     {
     id: 4,
@@ -54,6 +58,7 @@ const rekamMedisDummy = [
     golDar: "A",
     diagnosa: "Flu",
     tindakan: "Istirahat & vitamin",
+    skorSehat: 9,
   },
     {
     id: 5,
@@ -68,6 +73,7 @@ const rekamMedisDummy = [
     golDar: "A",
     diagnosa: "Flu",
     tindakan: "Istirahat & vitamin",
+    skorSehat: 7,
   },
     {
     id: 6,
@@ -82,6 +88,7 @@ const rekamMedisDummy = [
     golDar: "A",
     diagnosa: "Flu",
     tindakan: "Istirahat & vitamin",
+    skorSehat: 5,
   },
 ];
 

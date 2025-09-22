@@ -1,18 +1,19 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+ 
 const FilterRekamMedis = ({
   tanggal, setTanggal, nama, setNama, keluhan, setKeluhan, tindakan, setTindakan, uniqueNama, uniqueKeluhan, uniqueTindakan, handleReset,
 }) => {
   return (
-                <div className="filter-container">
+          <div className="filter-container">
                 <DatePicker
-                selected={tanggal}
-                onChange={(date) => setTanggal(date)}
-                dateFormat="yyyy-MM-dd"
-                placeholderText="Input Tanggal"
-                showIcon
-                className="select-filter"
+                  selectsRange
+                  startDate={tanggal[0]}
+                  endDate={tanggal[1]}
+                  onChange={(update) => setTanggal(update)} 
+                  dateFormat="dd MMMM yyyy"
+                  placeholderText="Input Tanggal"
+                  className="select-filter"
                 />
 
                 <select
