@@ -1,11 +1,43 @@
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
  
 const FilterRekamMedis = ({
-  tanggal, setTanggal, nama, setNama, keluhan, setKeluhan, tindakan, setTindakan, uniqueNama, uniqueKeluhan, uniqueTindakan, handleReset,
+  tanggal, setTanggal,
+  nama, setNama, 
+  keluhan, setKeluhan, 
+  tindakan, setTindakan, 
+  uniqueNama, uniqueKeluhan, uniqueTindakan, 
+  handleReset,
 }) => {
+
+ const [filterCategory, setFilterCategory] = useState("");
   return (
           <div className="filter-container">
+            <div className="filter-header">
+                          <select
+                className="select-filter"
+                value={filterCategory}
+                onChange={(e) => {
+                  setFilterCategory(e.target.value);
+                
+                  setNama("");
+                  setKeluhan("");
+                  setTindakan("");
+                  setTanggal([null, null]);
+                }}
+              >
+                <option value="">Filter</option>
+                <option value="tanggal">Tanggal</option>
+                <option value="nama">Nama</option>
+                <option value="keluhan">Keluhan</option>
+                <option value="tindakan">Tindakan</option>
+            </select>
+            </div>
+            
+
+       {filterCategory === "" && (
+        <>
                 <DatePicker
                   selectsRange
                   startDate={tanggal[0]}
@@ -15,8 +47,7 @@ const FilterRekamMedis = ({
                   placeholderText="Input Tanggal"
                   className="select-filter"
                 />
-
-                <select
+                                        <select
                 className="select-filter"
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
@@ -29,7 +60,7 @@ const FilterRekamMedis = ({
                 ))}
                 </select>
 
-                <select
+                                <select
                 className="select-filter"
                 value={keluhan}
                 onChange={(e) => setKeluhan(e.target.value)}
@@ -42,7 +73,7 @@ const FilterRekamMedis = ({
                 ))}
                 </select>
 
-                <select
+                                        <select
                 className="select-filter"
                 value={tindakan}
                 onChange={(e) => setTindakan(e.target.value)}
@@ -54,6 +85,60 @@ const FilterRekamMedis = ({
                     </option>
                 ))}
                 </select>
+        
+ </>
+      ) }
+
+       {filterCategory === "tanggal" && (
+        <DatePicker
+          selectsRange
+          startDate={tanggal[0]}
+          endDate={tanggal[1]}
+          onChange={(update) => setTanggal(update)}
+          dateFormat="dd MMMM yyyy"
+          placeholderText="Input Tanggal"
+          className="select-filter"
+        />
+      )}
+
+      {filterCategory === "nama" && (
+        <select
+          className="select-filter"  
+          value={nama}
+          onChange={(e) => setNama(e.target.value)}
+        >
+          <option value="">Nama Siswa</option>
+          {uniqueNama.map((n) => (
+            <option key={n} value={n}>{n}</option>
+          ))}
+        </select>
+      )}
+
+      {filterCategory === "keluhan" && (
+        <select
+          className="select-filter"
+          value={keluhan}
+          onChange={(e) => setKeluhan(e.target.value)}
+        >
+          <option value="">Keluhan</option>
+          {uniqueKeluhan.map((k) => (
+            <option key={k} value={k}>{k}</option>
+          ))}
+        </select>
+      )}
+
+      {filterCategory === "tindakan" && (
+        <select
+          className="select-filter"
+          value={tindakan}
+          onChange={(e) => setTindakan(e.target.value)}
+        >
+          <option value="">Tindakan</option>
+          {uniqueTindakan.map((t) => (
+            <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+      )}
 
                 <button onClick={handleReset} className="btn-reset">
                 Reset

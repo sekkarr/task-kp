@@ -4,17 +4,20 @@ import  Plus from "../../assets/icons/Plus.svg?react";
 import Pagination from "../../components/rekamMedis/Pagination";
 import TabelRekamMedis from "../../components/rekamMedis/TabelRekamMedis";
 import FilterRekamMedis from "../../components/rekamMedis/FilterRekamMedis";
+import { flattenData } from "../../utils/flattenData";
 
 
 const RekamMedis = ({data, setData}  ) => {
+
+    const flatData = flattenData(data);
 
     //delete
     const handleDelete = (id) => {
         const confirmDelete = window.confirm("Yakin mau hapus data ini?");
         if (confirmDelete) {
-        setData(data.filter((item) => item.id !== id));
+            setData(data.filter((item) => item.id !== id));
         }
-    };
+    }; 
 
     //pagination
     const [currentPage, setCurrentPage] = useState(1);
@@ -27,11 +30,11 @@ const RekamMedis = ({data, setData}  ) => {
     const [tindakan, setTindakan] = useState("");
 
     // filter dropdown
-    const uniqueNama = [...new Set(data.map((item) => item.nama))];
-    const uniqueKeluhan = [...new Set(data.map((item) => item.keluhan))];
-    const uniqueTindakan = [...new Set(data.map((item) => item.tindakan))];
+    const uniqueNama = [...new Set(flatData.map((item) => item.nama))];
+    const uniqueKeluhan = [...new Set(flatData.map((item) => item.keluhan))];
+    const uniqueTindakan = [...new Set(flatData.map((item) => item.tindakan))];
 
-    const filterData = data.filter((item) => {
+    const filterData = flatData.filter((item) => {
         let matchTanggal = true;
             if (tanggal[0] && tanggal[1]) {
       const itemDate = new Date(item.tanggal);
@@ -125,3 +128,5 @@ export default RekamMedis;
 // - componen belum dipisah - masih jadi satuuu - udah dipisah
 // - styling masih berantakan (belum semua dipisah)
 // - penamaan belum konsisten (hwhwhwhw)
+
+
