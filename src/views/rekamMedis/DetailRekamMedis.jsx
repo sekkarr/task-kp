@@ -19,7 +19,7 @@ const DetailRekamMedis = ({ data }) => {
 
   //timeline
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   useEffect(() => {
     setActiveIndex(0);
   }, [id]);
@@ -41,7 +41,7 @@ const DetailRekamMedis = ({ data }) => {
         />
       )}
 
-      <div >
+      <div>
         <div className="profile-card">
           <div className="profile-info">
             <strong>{item.nama}</strong>
@@ -148,7 +148,6 @@ export default DetailRekamMedis;
 //masih coba, bleum fix semua
 //Q: - apakah ada konten di setiap timeline - done bg
 //- emoticon diambil dari mana - doneee
-
 
 // 23.9.25: fixing filter (-styling), create timeline (done),
 // untuk timline baru satu id (dummy baru diubah itu satu ) - dummmy yang lain belum dipisah untuk [riwayat], jadi di tabel belum sesuai, perlu dibuat flatten dulu (samakan dummy)

@@ -33,8 +33,6 @@
   }
 }
 
-
-
 .read-the-docs {
   color: #888;
 }
@@ -42,7 +40,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: "Instrument Sans", sans-serif;
 }
 
 body {
@@ -52,10 +50,10 @@ body {
 
 .react-datepicker-wrapper input {
   border: 1px solid #ccc;
-  border-radius: 20px; 
+  border-radius: 20px;
   padding: 8px 12px;
   font-size: 14px;
-  width: 300px; 
+  width: 300px;
   text-align: center;
 }
 
@@ -63,32 +61,31 @@ nav {
   display: flex;
   gap: 1rem;
   padding: 1rem 2rem;
-  background-color: #ffffff; 
-  position: fixed; 
+  background-color: #ffffff;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 nav a {
-  display: inline-block;      
+  display: inline-block;
   color: #333;
   font-weight: 500;
-  padding: 12px 24px;            
-  font-size: 16px;             
-  border-radius: 30px;           
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 30px;
 }
 
 nav a:hover {
   color: #fff;
-  background-color: #0A805D;
+  background-color: #0a805d;
 }
-
 
 .rekam-tabel {
   width: 100%;
-  border: 1px solid #E7E7F0; 
+  border: 1px solid #e7e7f0;
   overflow: hidden;
   font-size: 14px;
   table-layout: fixed;
@@ -98,10 +95,10 @@ nav a:hover {
 .rekam-tabel th,
 .rekam-tabel td {
   padding: 12px;
-  text-align: center; 
+  text-align: center;
   font-weight: 500;
   word-wrap: break-word;
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 .rekam-tabel th {
@@ -122,7 +119,6 @@ nav a:hover {
   border-right: none;
   border-left: none;
   border-top: none;
-  
 }
 
 .filter-container {
@@ -135,23 +131,14 @@ nav a:hover {
 
 .select-filter {
   border: 1px solid #ccc;
-  border-radius: 20px; 
+  border-radius: 20px;
   padding: 8px 12px;
   font-size: 14px;
-  width: 200px; 
+  width: 200px;
 }
 
-.btn-reset {
-  
-  background-color: #E60004;
-  padding: 10px 12px;
-  font-size: 14px;
-  width: 100px;
-  margin-top: -20px;
-  color: white;  
-}
-
-.btn-next, .btn-prev {
+.btn-next,
+.btn-prev {
   border-radius: 20px;
   background-color: rgb(190, 183, 183);
   padding: 10px 8px;
@@ -199,7 +186,9 @@ label {
   color: #374151;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   width: 100%;
   padding: 10px 5px;
   margin-bottom: 20px;
@@ -212,8 +201,10 @@ input, textarea, select {
   transition: border-color 0.2s ease;
 }
 
-input:focus, textarea:focus, select:focus {
-  border-bottom: 2px ;
+input:focus,
+textarea:focus,
+select:focus {
+  border-bottom: 2px;
   outline: none;
 }
 
@@ -239,7 +230,7 @@ button {
 }
 
 button[type="submit"] {
-  background-color: #0A805D;
+  background-color: #0a805d;
   color: #fff;
 }
 
@@ -258,23 +249,23 @@ button[type="button"]:hover {
 
 .button-group {
   display: flex;
-  justify-content: flex-end; 
-  gap: 10px; 
-  margin-top: 20px; 
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .checkbox-label {
   display: flex;
-  align-items: center; 
-  gap: 8px; 
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
 }
 
 .aksi-wrapper {
   display: flex;
-  gap: 8px;              
+  gap: 8px;
   justify-content: center;
-  flex-wrap: wrap;       
+  flex-wrap: wrap;
 }
 
 .aksi-icon {
@@ -285,43 +276,58 @@ button[type="button"]:hover {
 }
 
 .aksi-icon:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
-
 .delete-icon {
-  color: #dc2626;       
+  color: #dc2626;
 }
 
 .delete-icon:hover {
-  color: #b91c1c;        
+  color: #b91c1c;
 }
 
 .btn-tambah {
-  display: inline-flex;       
-  align-items: center;        
-  gap: 8px;                  
-  padding: 8px 16px;             
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
   border: none;
   border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
-  border: 2px solid #0A805D;
-  color: #0A805D;
+  border: 2px solid #0a805d;
+  color: #0a805d;
   background-color: white;
+  transition: transform 0.2s ease;
 }
 
 .btn-tambah:hover {
-  background-color:#0A805D;
-  color: white;
+  transform: scale(1.1);
 }
 
+.btn-reset {
+  background-color: #e60004;
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100px;
+  margin-top: -20px;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.btn-reset:hover {
+  transform: scale(1.1);
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+}
 
 .rc-slider-mark {
   top: -35px !important;
 }
-
-
 
 .profile-card {
   display: flex;
@@ -332,7 +338,7 @@ button[type="button"]:hover {
   border-radius: 12px;
   margin-bottom: 25px;
   margin-top: 25px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -341,7 +347,7 @@ button[type="button"]:hover {
   background: #f9f9f9;
   padding: 20px;
   margin-bottom: 25px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
 }
 .profile-img {
@@ -378,12 +384,10 @@ button[type="button"]:hover {
   gap: 15px;
 }
 
-
 .card {
   background: #fff;
   border-radius: 12px;
   padding: 15px 20px;
-
 }
 
 .card h3 {
@@ -393,7 +397,6 @@ button[type="button"]:hover {
   padding-bottom: 5px;
 }
 
-
 .footer {
   margin-top: 30px;
   display: flex;
@@ -402,11 +405,11 @@ button[type="button"]:hover {
 }
 
 .btn-back {
-  background-color: #0A805D;
+  background-color: #0a805d;
   color: rgb(255, 255, 255);
 }
 
-.btn-back :hover{
+.btn-back :hover {
   background-color: #059669;
 }
 
@@ -423,7 +426,7 @@ button[type="button"]:hover {
 
 .detail-row .label {
   color: #333;
-  min-width: 300px; 
+  min-width: 300px;
 }
 
 .detail-row .value {

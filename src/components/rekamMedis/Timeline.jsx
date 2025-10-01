@@ -5,7 +5,11 @@ import Dot from "../../assets/icons/Dot.svg?react";
 import LineSeparator from "../../assets/icons/LineSeparator.svg?react";
 import "./timeline.css";
 
-export default function RekamMedisTimeline({ tabs, activeIndex, setActiveIndex }) {
+export default function RekamMedisTimeline({
+  tabs,
+  activeIndex,
+  setActiveIndex,
+}) {
   const scrollRef = useRef(null);
 
   const scrollTabs = (direction) => {
@@ -33,8 +37,14 @@ export default function RekamMedisTimeline({ tabs, activeIndex, setActiveIndex }
             </div>
           ))}
         </div>
-        <TabPrev className="scroll-btn left" onClick={() => scrollTabs("left")} />
-        <TabNext className="scroll-btn right" onClick={() => scrollTabs("right")} />
+        <TabPrev
+          className="scroll-btn left"
+          onClick={() => scrollTabs("left")}
+        />
+        <TabNext
+          className="scroll-btn right"
+          onClick={() => scrollTabs("right")}
+        />
       </div>
     </div>
   );

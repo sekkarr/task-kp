@@ -1,95 +1,97 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
- 
+
 const FilterRekamMedis = ({
-  tanggal, setTanggal,
-  nama, setNama, 
-  keluhan, setKeluhan, 
-  tindakan, setTindakan, 
-  uniqueNama, uniqueKeluhan, uniqueTindakan, 
+  tanggal,
+  setTanggal,
+  nama,
+  setNama,
+  keluhan,
+  setKeluhan,
+  tindakan,
+  setTindakan,
+  uniqueNama,
+  uniqueKeluhan,
+  uniqueTindakan,
   handleReset,
 }) => {
-
- const [filterCategory, setFilterCategory] = useState("");
+  const [filterCategory, setFilterCategory] = useState("");
   return (
-          <div className="filter-container">
-            <div className="filter-header">
-                          <select
-                className="select-filter"
-                value={filterCategory}
-                onChange={(e) => {
-                  setFilterCategory(e.target.value);
-                
-                  setNama("");
-                  setKeluhan("");
-                  setTindakan("");
-                  setTanggal([null, null]);
-                }}
-              >
-                <option value="">Filter</option>
-                <option value="tanggal">Tanggal</option>
-                <option value="nama">Nama</option>
-                <option value="keluhan">Keluhan</option>
-                <option value="tindakan">Tindakan</option>
-            </select>
-            </div>
-            
+    <div className="filter-container">
+      <div className="filter-header">
+        <select
+          className="select-filter"
+          value={filterCategory}
+          onChange={(e) => {
+            setFilterCategory(e.target.value);
+            setNama("");
+            setKeluhan("");
+            setTindakan("");
+            setTanggal([null, null]);
+          }}
+        >
+          <option value="">Filter</option>
+          <option value="tanggal">Tanggal</option>
+          <option value="nama">Nama</option>
+          <option value="keluhan">Keluhan</option>
+          <option value="tindakan">Tindakan</option>
+        </select>
+      </div>
 
-       {filterCategory === "" && (
+      {filterCategory === "" && (
         <>
-                <DatePicker
-                  selectsRange
-                  startDate={tanggal[0]}
-                  endDate={tanggal[1]}
-                  onChange={(update) => setTanggal(update)} 
-                  dateFormat="dd MMMM yyyy"
-                  placeholderText="Input Tanggal"
-                  className="select-filter"
-                />
-                                        <select
-                className="select-filter"
-                value={nama}
-                onChange={(e) => setNama(e.target.value)}
-                >
-                <option value="">Nama Siswa</option>
-                {uniqueNama.map((n) => (
-                    <option key={n} value={n}>
-                    {n}
-                    </option>
-                ))}
-                </select>
+          <DatePicker
+            selectsRange
+            startDate={tanggal[0]}
+            endDate={tanggal[1]}
+            onChange={(update) => setTanggal(update)}
+            dateFormat="dd MMMM yyyy"
+            placeholderText="Input Tanggal"
+            className="select-filter"
+          />
+          <select
+            className="select-filter"
+            value={nama}
+            onChange={(e) => setNama(e.target.value)}
+          >
+            <option value="">Nama Siswa</option>
+            {uniqueNama.map((n) => (
+              <option key={n} value={n}>
+                {n}
+              </option>
+            ))}
+          </select>
 
-                                <select
-                className="select-filter"
-                value={keluhan}
-                onChange={(e) => setKeluhan(e.target.value)}
-                >
-                <option value="">Keluhan</option>
-                {uniqueKeluhan.map((k) => (
-                    <option key={k} value={k}>
-                    {k}
-                    </option>
-                ))}
-                </select>
+          <select
+            className="select-filter"
+            value={keluhan}
+            onChange={(e) => setKeluhan(e.target.value)}
+          >
+            <option value="">Keluhan</option>
+            {uniqueKeluhan.map((k) => (
+              <option key={k} value={k}>
+                {k}
+              </option>
+            ))}
+          </select>
 
-                                        <select
-                className="select-filter"
-                value={tindakan}
-                onChange={(e) => setTindakan(e.target.value)}
-                >
-                <option value="">Tindakan</option>
-                {uniqueTindakan.map((t) => (
-                    <option key={t} value={t}>
-                    {t}
-                    </option>
-                ))}
-                </select>
-        
- </>
-      ) }
+          <select
+            className="select-filter"
+            value={tindakan}
+            onChange={(e) => setTindakan(e.target.value)}
+          >
+            <option value="">Tindakan</option>
+            {uniqueTindakan.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </>
+      )}
 
-       {filterCategory === "tanggal" && (
+      {filterCategory === "tanggal" && (
         <DatePicker
           selectsRange
           startDate={tanggal[0]}
@@ -103,13 +105,15 @@ const FilterRekamMedis = ({
 
       {filterCategory === "nama" && (
         <select
-          className="select-filter"  
+          className="select-filter"
           value={nama}
           onChange={(e) => setNama(e.target.value)}
         >
           <option value="">Nama Siswa</option>
           {uniqueNama.map((n) => (
-            <option key={n} value={n}>{n}</option>
+            <option key={n} value={n}>
+              {n}
+            </option>
           ))}
         </select>
       )}
@@ -122,7 +126,9 @@ const FilterRekamMedis = ({
         >
           <option value="">Keluhan</option>
           {uniqueKeluhan.map((k) => (
-            <option key={k} value={k}>{k}</option>
+            <option key={k} value={k}>
+              {k}
+            </option>
           ))}
         </select>
       )}
@@ -135,16 +141,18 @@ const FilterRekamMedis = ({
         >
           <option value="">Tindakan</option>
           {uniqueTindakan.map((t) => (
-            <option key={t} value={t}>{t}</option>
+            <option key={t} value={t}>
+              {t}
+            </option>
           ))}
         </select>
       )}
 
-                <button onClick={handleReset} className="btn-reset">
-                Reset
-                </button>
-            </div>
-  )
-}
+      <button onClick={handleReset} className="btn-reset">
+        Reset
+      </button>
+    </div>
+  );
+};
 
-export default FilterRekamMedis
+export default FilterRekamMedis;

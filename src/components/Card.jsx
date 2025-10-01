@@ -47,26 +47,25 @@ export const Card = ({ data, layout = "vertical" }) => {
           </p>
 
           <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "12px",
-          }}
-          >
-
-          <button
             style={{
-            color: "white",
-            fontSize: "12px",
-            padding: "4px 10px",
-            borderRadius: "12px",
-            marginRight: "6px",
-            backgroundColor: "#8FA31E",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "12px",
             }}
-            onClick={() => alert(`Learn more about ${data.name}`)}
           >
-          Learn More
-          </button>
+            <button
+              style={{
+                color: "white",
+                fontSize: "12px",
+                padding: "4px 10px",
+                borderRadius: "12px",
+                marginRight: "6px",
+                backgroundColor: "#8FA31E",
+              }}
+              onClick={() => alert(`Learn more about ${data.name}`)}
+            >
+              Learn More
+            </button>
           </div>
         </div>
       </div>
